@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Blog & Insights | PeterSmark AI & Tech Blog{% endblock %}
+
+{% block content %}
+<section class="section blog-hero">
+    <div class="container text-center reveal">
+        <h1 class="text-gradient split-text">Insights for the Future</h1>
+        <p class="subtitle mt-20">Deep dives into AI automation, app architecture, and the business of technology.</p>
+    </div>
+</section>
+
+<section class="section blog-posts">
+    <div class="container">
+        <div class="blog-grid">
+            <!-- Post 1 -->
+            <article class="blog-card reveal scale-up">
+                <div class="blog-meta">
+                    <span class="blog-category">AI Automation</span>
+                    <span class="blog-date">Feb 5, 2026</span>
+                </div>
+                <h3>How AI Agents are Replacing Manual CRM Entry</h3>
+                <p>Discover how custom AI agents can sync your sales data with 99% accuracy without a single
+                    keystroke...</p>
+                <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-card reveal scale-up" style="transition-delay: 0.2s">
+                <div class="blog-meta">
+                    <span class="blog-category">App Development</span>
+                    <span class="blog-date">Jan 30, 2026</span>
+                </div>
+                <h3>The 2026 Roadmap for Cross-Platform Apps</h3>
+                <p>Why Flutter and React Native are still the kings of MVP development in the upcoming year...</p>
+                <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-card reveal scale-up" style="transition-delay: 0.4s">
+                <div class="blog-meta">
+                    <span class="blog-category">Tech Strategy</span>
+                    <span class="blog-date">Jan 15, 2026</span>
+                </div>
+                <h3>Scaling from $0 to $1M: The CTO's Checklist</h3>
+                <p>A technical guide for founders on how to build a scalable architecture that doesn't break at 10k
+                    users...</p>
+                <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block head %}
+<style>
+    .blog-hero {
+        padding-top: clamp(100px, 15vw, 150px);
+    }
+
+    .blog-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+        gap: clamp(20px, 4vw, 30px);
+        margin-top: 40px;
+    }
+
+    .blog-card {
+        background: var(--bg-card);
+        border: 1px solid var(--glass-border);
+        padding: clamp(20px, 4vw, 30px);
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+    }
+
+    .blog-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+    }
+
+    .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 0.85rem;
+    }
+
+    .blog-category {
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .blog-date {
+        color: var(--text-muted);
+    }
+
+    .blog-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .blog-card p {
+        color: var(--text-muted);
+        margin-bottom: 24px;
+    }
+
+    .read-more {
+        color: var(--text-main);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .read-more i {
+        font-size: 0.8rem;
+        transition: var(--transition);
+    }
+
+    .blog-card:hover .read-more i {
+        transform: translateX(5px);
+    }
+</style>
+{% endblock %}

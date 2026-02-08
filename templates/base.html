@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PeterSmark | App, Web & AI Automation Agency{% endblock %}</title>
+    <meta name="description"
+        content="{% block description %}PeterSmark builds scalable apps, powerful web platforms, and intelligent AI automations to help businesses grow faster.{% endblock %}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <header id="main-header">
+        <nav class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PeterSmark Logo"
+                        class="logo-img">
+                    <span class="logo-text">Peter<span class="text-gradient">Smark</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="/services">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/services/app-development">App Development</a></li>
+                        <li><a href="/services/web-development">Web Development</a></li>
+                        <li><a href="/services/ai-automation">AI Automation</a></li>
+                    </ul>
+                </li>
+                <li><a href="/case-studies">Portfolio</a></li>
+                <li><a href="/process">Process</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact" class="btn btn-primary nav-cta">Book a Call</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer id="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PeterSmark Logo"
+                            class="logo-img">
+                        <span class="logo-text">Peter<span class="text-gradient">Smark</span></span>
+                    </a>
+                </div>
+                <p>Building the future of digital products and AI automation.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/santhosh-kumar-gudimetla-761140387" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/services/app-development">App Development</a></li>
+                    <li><a href="/services/web-development">Web Development</a></li>
+                    <li><a href="/services/ai-automation">AI Automation</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/founder">The Founder</a></li>
+                    <li><a href="/process">Our Process</a></li>
+                    <li><a href="/blog">Blog & Insights</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Subscribe</h4>
+                <p>Get the latest updates on AI and Tech.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-secondary">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PeterSmark. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

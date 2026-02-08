@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Web Development Services | PeterSmark{% endblock %}
+
+{% block content %}
+<section class="section service-detail-hero">
+    <div class="container text-center reveal">
+        <h1 class="text-gradient">Web Development</h1>
+        <p class="subtitle">Scalable, secure, and lightning-fast web platforms.</p>
+        <a href="/contact" class="btn btn-primary mt-30">Start Your Web Project</a>
+    </div>
+</section>
+
+<section class="section service-info">
+    <div class="container grid-2">
+        <div class="reveal">
+            <h2>The <span class="text-gradient">Problem</span></h2>
+            <p>Slow load times, poor SEO, and non-responsive designs are silent killers for businesses. In today's
+                digital landscape, your website or web app needs to perform flawlessly across all devices while being
+                easily discoverable.</p>
+        </div>
+        <div class="reveal">
+            <h2>Our <span class="text-gradient">Solution</span></h2>
+            <p>We leverage cutting-edge technologies like Next.js, Flask, and PostgreSQL to deliver high-performance web
+                solutions. Our focus is on clean architecture, lightning-fast Core Web Vitals, and intuitive user
+                interfaces.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section capabilities bg-alt">
+    <div class="container">
+        <h2 class="text-center reveal">Our Capabilities</h2>
+        <div class="capabilities-grid reveal">
+            <div class="cap-card">
+                <i class="fas fa-rocket"></i>
+                <h3>SaaS Platforms</h3>
+                <p>Build and scale your subscription-based software product.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-commerce</h3>
+                <p>Custom store experiences with secure payment integrations.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Admin Dashboards</h3>
+                <p>Data-rich interfaces for managing your business operations.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Backend</h3>
+                <p>Industrial-strength server-side logic and database design.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'components/cta_block.html' %}
+{% endblock %}
+
+{% block head %}
+<style>
+    .service-detail-hero {
+        padding-top: 150px;
+    }
+
+    .capabilities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+    }
+
+    .cap-card {
+        background: var(--bg-card);
+        border: 1px solid var(--glass-border);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        text-align: center;
+    }
+
+    .cap-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}

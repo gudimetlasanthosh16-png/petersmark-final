@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}Our Services | App, Web & AI | PeterSmark{% endblock %}
+
+{% block content %}
+<section class="section services-hero">
+    <div class="container text-center reveal">
+        <h1 class="text-gradient split-text">End-to-End Solutions</h1>
+        <p class="subtitle mt-20">From initial concept to AI-driven automation, we build the tech that powers your
+            growth.</p>
+    </div>
+</section>
+
+<section class="section all-services">
+    <div class="container">
+        <!-- App Dev -->
+        <div class="service-detail-row reveal" id="app">
+            <div class="service-detail-info">
+                <span class="service-num">01</span>
+                <h2>App Development</h2>
+                <p>We build native and cross-platform mobile applications that provide seamless user experiences. Our
+                    apps are designed to be fast, secure, and highly scalable.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> iOS & Android (Saves time/budget)</li>
+                    <li><i class="fas fa-check-circle"></i> React Native & Flutter Expertise</li>
+                    <li><i class="fas fa-check-circle"></i> Offline-first Architecture</li>
+                    <li><i class="fas fa-check-circle"></i> App Store Optimization</li>
+                </ul>
+                <a href="/services/app-development" class="btn btn-secondary mt-20">View Service Details</a>
+            </div>
+            <div class="service-detail-image">
+                <div class="glass-box service-graphic reveal scale-up">
+                    <i class="fas fa-mobile-alt main-icon"></i>
+                    <div class="floating-circle"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Web Dev -->
+        <div class="service-detail-row reverse reveal" id="web">
+            <div class="service-detail-info">
+                <span class="service-num">02</span>
+                <h2>Web Development</h2>
+                <p>Modern web platforms, SaaS applications, and enterprise dashboards. We prioritize performance, SEO,
+                    and responsive design above all else.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> High-Performance React/Next.js</li>
+                    <li><i class="fas fa-check-circle"></i> Custom CMS Integrations</li>
+                    <li><i class="fas fa-check-circle"></i> Secure Payment Gateways</li>
+                    <li><i class="fas fa-check-circle"></i> Real-time Dashboards</li>
+                </ul>
+                <a href="/services/web-development" class="btn btn-secondary mt-20">View Service Details</a>
+            </div>
+            <div class="service-detail-image">
+                <div class="glass-box service-graphic reveal scale-up">
+                    <i class="fas fa-globe main-icon"></i>
+                    <div class="floating-circle"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Automation -->
+        <div class="service-detail-row reveal" id="ai">
+            <div class="service-detail-info">
+                <span class="service-num">03</span>
+                <h2>AI Automation</h2>
+                <p>Harness the power of Artificial Intelligence to automate complex workflows, gain insights from data,
+                    and improve customer interactions.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Custom AI Agents & Chatbots</li>
+                    <li><i class="fas fa-check-circle"></i> Predictive Analytics Models</li>
+                    <li><i class="fas fa-check-circle"></i> Automated Data Processing</li>
+                    <li><i class="fas fa-check-circle"></i> NLP & Image Recognition</li>
+                </ul>
+                <a href="/services/ai-automation" class="btn btn-primary mt-20">View Service Details</a>
+            </div>
+            <div class="service-detail-image">
+                <div class="glass-box service-graphic reveal scale-up">
+                    <i class="fas fa-brain main-icon"></i>
+                    <div class="floating-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block head %}
+<style>
+    .services-hero {
+        padding-top: clamp(100px, 15vw, 150px);
+    }
+
+    .services-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .service-num {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--glass-border);
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .service-detail-row {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: clamp(40px, 8vw, 80px);
+        align-items: center;
+        margin-bottom: clamp(60px, 10vw, 120px);
+    }
+
+    .service-detail-row.reverse {
+        direction: rtl;
+    }
+
+    .service-detail-row.reverse .service-detail-info {
+        direction: ltr;
+    }
+
+    .service-detail-info h2 {
+        font-size: 2.5rem;
+        margin-bottom: 24px;
+    }
+
+    .service-detail-info p {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        margin-bottom: 30px;
+    }
+
+    .feature-list {
+        margin-bottom: 30px;
+    }
+
+    .feature-list li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text-main);
+    }
+
+    .feature-list i {
+        color: var(--primary);
+    }
+
+    .service-graphic {
+        height: clamp(300px, 40vw, 400px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .main-icon {
+        font-size: 8rem;
+        color: var(--primary);
+        opacity: 0.2;
+        z-index: 1;
+    }
+
+    .floating-circle {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: var(--primary-glow);
+        filter: blur(60px);
+        border-radius: 50%;
+        animation: float 6s infinite alternate;
+    }
+
+    @keyframes float {
+        from {
+            transform: translate(-20px, -20px);
+        }
+
+        to {
+            transform: translate(20px, 20px);
+        }
+    }
+
+    @media (max-width: 992px) {
+        .service-detail-row {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .service-detail-row.reverse {
+            direction: ltr;
+        }
+
+        .feature-list {
+            display: inline-block;
+            text-align: left;
+        }
+    }
+</style>
+{% endblock %}

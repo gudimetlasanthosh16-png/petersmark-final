@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | Our Mission & Values | PeterSmark{% endblock %}
+
+{% block content %}
+<section class="section about-hero">
+    <div class="container text-center reveal">
+        <h1 class="text-gradient split-text">Engineered for Impact</h1>
+        <p class="subtitle mt-20">We are a boutique agency of elite developers and AI architects dedicated to building
+            the next generation of digital products.</p>
+    </div>
+</section>
+
+<section class="section mission-section">
+    <div class="container grid-system grid-2">
+        <div class="reveal">
+            <h2>Our <span class="text-gradient">Mission</span></h2>
+            <p class="mt-20">To empower businesses with cutting-edge technology and AI that drives efficiency,
+                scalability, and long-term success. We don't just write code; we solve business problems.</p>
+
+            <h2 class="mt-60">Our <span class="text-gradient">Vision</span></h2>
+            <p class="mt-20">A world where technology and human intuition work in perfect harmony, powered by
+                intelligent automation and accessible digital platforms.</p>
+        </div>
+        <div class="reveal">
+            <div class="glass-box values-box">
+                <h3>Our Core Values</h3>
+                <ul class="values-list stagger-children reveal">
+                    <li><strong>Transparency:</strong> We believe in clear communication and honest timelines.</li>
+                    <li><strong>Innovation:</strong> We stay at the bleeding edge of AI and tech.</li>
+                    <li><strong>User-Centric:</strong> Every line of code is written with the end-user in mind.</li>
+                    <li><strong>Scalability:</strong> We build for where you want to be, not just where you are.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section tech-stack-section bg-alt">
+    <div class="container text-center reveal">
+        <h2>Our <span class="text-gradient">Technology Stack</span></h2>
+        <p class="subtitle">Modern tools for modern problems.</p>
+
+        <div class="tech-grid">
+            <div class="tech-item reveal scale-up"><i class="fab fa-python"></i> <span>Python</span></div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.1s"><i class="fab fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.2s"><i class="fab fa-react"></i>
+                <span>React</span>
+            </div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.3s"><i class="fab fa-node-js"></i>
+                <span>Node.js</span>
+            </div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.4s"><i class="fas fa-database"></i>
+                <span>PostgreSQL</span>
+            </div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.5s"><i class="fab fa-aws"></i>
+                <span>AWS</span>
+            </div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.6s"><i class="fab fa-docker"></i>
+                <span>Docker</span>
+            </div>
+            <div class="tech-item reveal scale-up" style="transition-delay: 0.7s"><i class="fas fa-brain"></i>
+                <span>PyTorch</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block head %}
+<style>
+    .about-hero {
+        padding-top: clamp(100px, 15vw, 180px);
+    }
+
+    .about-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .values-box {
+        padding: 40px;
+        height: 100%;
+    }
+
+    .values-list {
+        margin-top: 32px;
+    }
+
+    .values-list li {
+        margin-bottom: 24px;
+        padding-left: 24px;
+        border-left: 2px solid var(--primary);
+    }
+
+    .values-list strong {
+        display: block;
+        font-size: 1.1rem;
+        color: var(--primary-bright);
+        margin-bottom: 6px;
+    }
+
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: clamp(15px, 3vw, 30px);
+        margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+        .grid-2 {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .values-box {
+            padding: 30px 20px;
+        }
+    }
+
+    .tech-item {
+        padding: 30px 20px;
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        transition: var(--transition);
+    }
+
+    .tech-item:hover {
+        background: var(--glass-hover);
+        transform: translateY(-8px);
+        border-color: var(--primary);
+        box-shadow: 0 10px 30px -10px var(--primary-glow);
+    }
+
+    .tech-item i {
+        font-size: 2.5rem;
+        color: var(--text-muted);
+        transition: var(--transition);
+    }
+
+    .tech-item:hover i {
+        color: var(--primary-bright);
+    }
+</style>
+{% endblock %}

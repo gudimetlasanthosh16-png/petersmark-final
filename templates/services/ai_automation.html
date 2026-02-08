@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}AI Automation Services | PeterSmark{% endblock %}
+
+{% block content %}
+<section class="section service-detail-hero">
+    <div class="container text-center reveal">
+        <h1 class="text-gradient">AI Automation</h1>
+        <p class="subtitle">Intelligent solutions to automate your business workflows.</p>
+        <a href="/contact" class="btn btn-primary mt-30">Explore AI Opportunities</a>
+    </div>
+</section>
+
+<!-- Demo Section -->
+<section class="section bg-alt-dark">
+    <div class="container narrow reveal">
+        <div class="glass-box ai-demo-box">
+            <h3>Try Our <span class="text-gradient">AI Insight Engine</span></h3>
+            <p>Paste a project description below to see how our AI identifies growth opportunities.</p>
+            <div class="demo-form mt-20">
+                <textarea id="ai-demo-input"
+                    placeholder="e.g., We want to build a mobile app for pet owners to track health data..."></textarea>
+                <button id="ai-demo-btn" class="btn btn-primary">Generate Insight</button>
+            </div>
+            <div id="ai-demo-result" class="mt-20"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section service-info">
+    <div class="container grid-system grid-2">
+        <div class="reveal">
+            <h2>The <span class="text-gradient">Problem</span></h2>
+            <p class="mt-20">Every day, businesses waste thousands of hours on repetitive tasks, data entry, and manual
+                processing.
+                These inefficiencies not only cost money but also prevent people from doing high-impact work.</p>
+        </div>
+        <div class="reveal">
+            <h2>Our <span class="text-gradient">Solution</span></h2>
+            <p class="mt-20">We build custom AI automations that integrate directly with your existing tools. From
+                intelligent
+                chatbots to complex data pipelines using Scikit-learn and PyTorch, we make your operations smarter and
+                faster.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section capabilities">
+    <div class="container">
+        <h2 class="text-center reveal">Our AI Capabilities</h2>
+        <div class="capabilities-grid reveal">
+            <div class="cap-card">
+                <i class="fas fa-robot"></i>
+                <h3>Custom AI Agents</h3>
+                <p>Intelligent assistants that handle customer queries or internal tasks.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Workflow Automation</h3>
+                <p>Connect your tools and automate end-to-end business processes.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-search-plus"></i>
+                <h3>Predictive Models</h3>
+                <p>Use your data to predict churn, sales, or market trends.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-file-invoice"></i>
+                <h3>Intelligent OCR</h3>
+                <p>Automatically extract and process data from documents and invoices.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'components/cta_block.html' %}
+{% endblock %}
+
+{% block head %}
+<style>
+    .service-detail-hero {
+        padding-top: 180px;
+    }
+
+    .ai-demo-box {
+        padding: 60px 40px;
+        border: 1px solid var(--primary-glow);
+        background: radial-gradient(circle at top right, var(--primary-glow), transparent);
+    }
+
+    .demo-form textarea {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--glass-border);
+        padding: 20px;
+        border-radius: 16px;
+        color: white;
+        min-height: 150px;
+        margin-bottom: 30px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: var(--transition);
+        resize: vertical;
+    }
+
+    .demo-form textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 20px var(--primary-glow);
+        outline: none;
+    }
+
+    #ai-demo-result {
+        padding: 30px;
+        background: var(--bg-card);
+        border-radius: 16px;
+        border: 1px solid var(--secondary);
+        display: none;
+        font-weight: 500;
+        color: #fff;
+        line-height: 1.6;
+        text-align: left;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .capabilities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 80px;
+    }
+
+    .cap-card {
+        padding: 40px;
+        transition: var(--transition);
+    }
+
+    .cap-card:hover {
+        transform: translateY(-10px);
+        background: var(--glass-hover);
+        border-color: var(--primary);
+    }
+
+    .cap-card i {
+        font-size: 3rem;
+        color: var(--primary-bright);
+        margin-bottom: 24px;
+        transition: var(--transition);
+    }
+
+    .cap-card:hover i {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 10px var(--primary-glow));
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('ai-demo-btn').addEventListener('click', async () => {
+        const input = document.getElementById('ai-demo-input').value;
+        if (!input) return alert('Please enter some text');
+
+        const btn = document.getElementById('ai-demo-btn');
+        const resultDiv = document.getElementById('ai-demo-result');
+
+        btn.textContent = 'Processing...';
+        btn.disabled = true;
+
+        try {
+            const data = await window.getAIInsight(input);
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = data.insight;
+        } catch (err) {
+            alert('Demo error');
+        } finally {
+            btn.textContent = 'Generate Insight';
+            btn.disabled = false;
+        }
+    });
+</script>
+{% endblock %}

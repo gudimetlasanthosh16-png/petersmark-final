@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}App Development Services | PeterSmark{% endblock %}
+
+{% block content %}
+<section class="section service-detail-hero">
+    <div class="container text-center reveal">
+        <h1 class="text-gradient">App Development</h1>
+        <p class="subtitle">High-performance mobile experiences for iOS and Android.</p>
+        <a href="/contact" class="btn btn-primary mt-30">Get a Free Estimate</a>
+    </div>
+</section>
+
+<section class="section service-info">
+    <div class="container grid-2">
+        <div class="reveal">
+            <h2>The <span class="text-gradient">Problem</span></h2>
+            <p>Most mobile apps fail due to poor performance, clunky UI, or lack of scalability. Building a successful
+                app requires more than just code—it requires a deep understanding of user behavior and platform-specific
+                best practices.</p>
+        </div>
+        <div class="reveal">
+            <h2>Our <span class="text-gradient">Solution</span></h2>
+            <p>We build robust, offline-ready, and lightning-fast applications using modern frameworks like Flutter and
+                React Native. Our process ensures your app is ready for millions of users from day one.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section capabilities bg-alt">
+    <div class="container">
+        <h2 class="text-center reveal">Our Capabilities</h2>
+        <div class="capabilities-grid reveal">
+            <div class="cap-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>MVP Development</h3>
+                <p>Launch your core features quickly to test the market.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Cross-Platform Apps</h3>
+                <p>One codebase for both iOS and Android platforms.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-sync"></i>
+                <h3>Real-time Sycn</h3>
+                <p>Seamless data flow between devices and backend.</p>
+            </div>
+            <div class="cap-card">
+                <i class="fas fa-lock"></i>
+                <h3>Secure APIs</h3>
+                <p>Enterprise-grade security for your data and users.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'components/cta_block.html' %}
+{% endblock %}
+
+{% block head %}
+<style>
+    .service-detail-hero {
+        padding-top: 150px;
+    }
+
+    .capabilities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+    }
+
+    .cap-card {
+        background: var(--bg-card);
+        border: 1px solid var(--glass-border);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        text-align: center;
+    }
+
+    .cap-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
