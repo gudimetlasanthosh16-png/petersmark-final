@@ -1,12 +1,11 @@
 from flask import Flask, render_template, jsonify, request
 import os
 
-app = Flask(__name__)
+# Configure template and static folders relative to api directory
+template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+static_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static'))
 
-# Vercel serverless handler
-def handler(request, **kwargs):
-    """Vercel serverless entry point"""
-    return app(request.environ, lambda *args, **kwargs: None)
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 # Routes for pages
 @app.route('/')
@@ -61,17 +60,16 @@ def contact():
 @app.route('/api/contact', methods=['POST'])
 def handle_contact():
     data = request.json
-    # Logic to handle contact form (e.g., save to DB or send email)
     return jsonify({"status": "success", "message": "Message received!"})
 
 @app.route('/api/ai/analyze', methods=['POST'])
 def ai_analyze():
-    # Placeholder for AI functionality using Scikit-learn or similar
     data = request.json
     text = data.get('text', '')
-    # Mock AI logic: return simple insight
     insight = f"AI Insight for '{text[:20]}...': This project has high growth potential."
     return jsonify({"insight": insight})
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+# Vercel serverless entry point
+def handler(request, **kwargs):
+    with app.request_context(request.environ):
+        return app(request.environ, lambda *args, **kwargs: None)
