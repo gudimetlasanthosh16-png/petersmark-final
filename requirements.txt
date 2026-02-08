@@ -1,7 +1,2 @@
 flask
-scikit-learn
-pandas
-numpy
-torch
-tensorflow
 python-dotenv
