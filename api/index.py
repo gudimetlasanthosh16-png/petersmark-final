@@ -69,6 +69,6 @@ def ai_analyze():
     insight = f"AI Insight for '{text[:20]}...': This project has high growth potential."
     return jsonify({"insight": insight})
 
-# Vercel serverless entry point - WSGI compliant
-def handler(environ, start_response):
-    return app(environ, start_response)
+# Vercel expects a WSGI callable at module level
+# 'app' is already the Flask WSGI application
+# No need for a wrapper handler function
