@@ -69,7 +69,6 @@ def ai_analyze():
     insight = f"AI Insight for '{text[:20]}...': This project has high growth potential."
     return jsonify({"insight": insight})
 
-# Vercel serverless entry point
-def handler(request, **kwargs):
-    with app.request_context(request.environ):
-        return app(request.environ, lambda *args, **kwargs: None)
+# Vercel serverless entry point - WSGI compliant
+def handler(environ, start_response):
+    return app(environ, start_response)
